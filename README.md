@@ -8,3 +8,5 @@ You wanna use the function called `align_pairwise` and accepts two strings with 
 - [parasail](https://github.com/jeffdaily/parasail-python)
 
 Enjoy the padthai! It is a delicious dish!
+
+![padthai](smallerpadthai.jpg)
