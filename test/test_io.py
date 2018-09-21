@@ -8,6 +8,7 @@ content:    Padthai_align_sequences
 # Modules
 import os
 import subprocess as sp
+from padthai import align_pairwise
 
 
 # Script
