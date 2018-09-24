@@ -14,6 +14,6 @@ from padthai import align_pairwise
 # Script
 if __name__ == '__main__':
 
-    alignment = align_pairwise("AAACCC","AC")
+    alignment = align_pairwise("AAACCC","AC","semi-global")
     print(alignment)
     assert alignment == ("AAACCC", "--AC--")

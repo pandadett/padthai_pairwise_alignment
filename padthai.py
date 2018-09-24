@@ -1,10 +1,10 @@
-def align_pairwise(s1, s2):
+def align_pairwise(s1, s2, kind):
     '''Align two sequences to each other
     
     Args:
         s1 (str): The first sequence
         s2 (str): The second sequence
-
+        kind (str): One of global, semi-global, or local alignment
     
     Returns:
         Pair of two aligned sequences (str)
@@ -12,7 +12,15 @@ def align_pairwise(s1, s2):
     def get_cigar(s1, s2):
         import parasail
     
-        result = parasail.sw_trace(s1, s2, 101, 10, parasail.pam100)
+        if kind == "local":
+            result = parasail.sw_trace(s1, s2, 101, 10, parasail.pam100)
+        elif kind == "semi-global":
+            result = parasail.sg_trace(s1, s2, 101, 10, parasail.pam100)
+        elif kind == "global":
+            result = parasail.nw_trace(s1, s2, 101, 10, parasail.pam100)
+        else:
+            raise ValueError("The kind of alignment must be global, semi-global, or local.")
+
         output = []
         for i in result.cigar.seq:
             #print(result.cigar.decode_len(i), result.cigar.decode_op(i).decode())
